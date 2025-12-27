@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Calculator</title>
+    <style>
+        .number {
+            color: blue;               /* number color */
+            background-color: lightgray; /* button background */
+            font-size: 20px;           /* number size */
+            width: 50px;               /* button width */
+            height: 50px;              /* button height */
+        }
+
+        .operator {
+            color: green;
+            background-color: yellow;
+            font-size: 20px;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+<input type="text" id="result" disabled>
+
+<br><br>
+<button class="number" onclick="append('1')">1</button>
+<button class="number" onclick="append('2')">2</button>
+<button class="number" onclick="append('3')">3</button>
+<button class="operator" onclick="append('+')">+</button>
+
+<br><br>
+<button class="number" onclick="append('4')">4</button>
+<button class="number" onclick="append('5')">5</button>
+<button class="number" onclick="append('6')">6</button>
+<button class="operator" onclick="append('-')">-</button>
+
+<br><br>
+<button class="number" onclick="append('7')">7</button>
+<button class="number" onclick="append('8')">8</button>
+<button class="number" onclick="append('9')">9</button>
+<button class="operator" onclick="append('*')">*</button>
+
+<br><br>
+<button class="number" onclick="append('0')">0</button>
+<button class="operator" onclick="append('/')">/</button>
+<button class="operator" onclick="calculate()">=</button>
+<button class="operator" onclick="clearAll()">C</button>
+
+
+<script>
+function append(value) {
+    document.getElementById("result").value += value;
+}
+
+function clearAll() {
+    document.getElementById("result").value = "";
+}
+
+function calculate() {
+    let exp = document.getElementById("result").value;
+    document.getElementById("result").value = eval(exp);
+}
+</script>
+
+</body>
+</html>
